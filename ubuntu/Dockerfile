@@ -7,7 +7,8 @@ RUN apt update \
     && apt install -y openssh-server \
     wget \
     curl \
-    vim
+    vim \
+    git
 
 # Install packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install pwgen supervisor
