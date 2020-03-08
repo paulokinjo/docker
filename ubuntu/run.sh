@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [ "${AUTHORIZED_KEYS}" != "**None**" ]; then
+    echo "${AUTHORIZED_KEYS}"
     echo "=> Found authorized keys"
     mkdir -p /root/.ssh
     chmod 700 /root/.ssh
@@ -23,4 +24,5 @@ if [ ! -f /.root_pw_set ]; then
 	./set_root_pw.sh
 fi
 
-exec /usr/sbin/sshd -D
+# exec /usr/sbin/sshd -D
+exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
