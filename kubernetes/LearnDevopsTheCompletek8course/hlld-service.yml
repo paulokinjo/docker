@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hlld-service
+spec:
+  selector:
+    app: hlld
+  ports:
+  - port: 80
+    targetPort: nodejs-port
+    protocol: TCP    
+  type: LoadBalancer
+
