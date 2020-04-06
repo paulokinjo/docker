@@ -13,4 +13,7 @@ RUN apt update \
 RUN apt install -y wget && wget https://bootstrap.pypa.io/get-pip.py \
     && python get-pip.py
 
+RUN apt-get install -y sshpass
+
+COPY ./ansible.cfg ~/ansible.cfg
 CMD [""]
