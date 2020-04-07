@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: hlld
+  name: nodehlld.ex.com
   labels:
     name: hlld
 spec:
   containers:
-  - name: hlld
+  - name: k8s-demo
     image: wardviaene/k8s-demo
     resources:
       limits:
-        memory: "128Mi"
-        cpu: "500m"
+        memory: "256Mi"
+        cpu: "750m"
     ports:
       - name: nodejs-port
         containerPort: 3000

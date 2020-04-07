@@ -1,0 +1,5 @@
+resources:
+  - secret.yml
+  - volume.yml
+  - mysql.yml
+  - wordpress.yml
