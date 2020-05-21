@@ -1,0 +1,6 @@
+resources:
+  - secrets.yml
+  - database.yml
+  - service.yml
+  - deployment.yml
+  - hlld-svc.yml
