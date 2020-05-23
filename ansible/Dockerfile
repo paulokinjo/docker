@@ -1,19 +1,19 @@
-FROM ubuntu:18.04
+FROM paulokinjo/ssh
 
 LABEL maintainer="paulokinjo@hotmail.com"
 
-RUN apt update \
-    && apt install -y software-properties-common \
-                      unzip \
-                      python-pip \
+RUN apt-get update \
+    && apt-get install -y software-properties-common \
+    unzip \
+    python-pip \
+    wget \
     && apt-add-repository --yes --update ppa:ansible/ansible \
-    && apt install -y ansible \
-    && pip install setuptools
+    && apt-get install -y ansible \
+    && pip install setuptools \ 
+    && pip install pywinrm==0.2.2
 
-RUN apt install -y wget && wget https://bootstrap.pypa.io/get-pip.py \
-    && python get-pip.py
+RUN wget https://bootstrap.pypa.io/get-pip.py \
+    && python get-pip.py 
 
-RUN apt-get install -y sshpass
-
-COPY ./ansible.cfg ~/ansible.cfg
-CMD [""]
+# default command
+CMD ["supervisord", "-c", "/etc/supervisor.conf"]

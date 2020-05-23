@@ -43,6 +43,13 @@ RUN ./configure \
 RUN make \
   &&  make install
 
+# NGINX - Service Configuration
+COPY ./nginx.service /lib/systemd/system/nginx.service
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
+# NGINX - Site sample
+COPY ./files/index.html /sites/demo/index.html 
+
 # PORTS
 EXPOSE 80
 
