@@ -1,14 +1,12 @@
-FROM ubuntu:18.04
+FROM paulokinjo/ssh
 
 LABEL maintainer="paulokinjo@hotmail.com"
 
-ENV TERRAFORM_VERSION=0.12.23
+ENV TERRAFORM_VERSION=0.12.25
 
-RUN apt update \
-    && apt install -y unzip \ 
-                      wget \
-    && wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
-    && unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
-    && mv terraform /usr/local/bin/ 
+
+RUN apt-get update \
+    && apt-get install -y unzip \ 
+    wget
 
 CMD [ "" ]

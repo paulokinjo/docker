@@ -39,6 +39,9 @@ RUN cp -r consoles /etc/prometheus \
   && chown -R prometheus:prometheus /etc/prometheus/consoles \
   && chown -R prometheus:prometheus /etc/prometheus/console_libraries
 
+# Copy configuration file
+COPY ./config.yml /etc/prometheus/prometheus.yml
+
 # default command
 COPY ./supervisor.conf .
 RUN cat ./supervisor.conf >> /etc/supervisor.conf
